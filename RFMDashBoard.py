@@ -5,7 +5,9 @@ import plotly.express as px
 df=pd.read_csv('rfm_table_data.csv')
 df_raw=pd.read_csv('transaction_data.csv')
 st.set_page_config(page_title='Customer Segmentation by RFM Analysis',layout='wide')
-st.header("Customer Segmentation by RFM Analysis")
+st.title("Customer Segmentation by RFM Analysis")
+st.header("Welcome to the Bicycle Shopping Dashboard")
+st.text(" At this dashboard, our focus is on enhancing your bicycle shopping experience.Through intelligent data analysis, we've\ncreated a system that helps us categorize our customers effectively, enabling us to understand their significance\nand cater to their needs more efficiently.")
 
 ## Side Bar
 show_table_box=st.sidebar.checkbox("Show Sample of Row Data")
