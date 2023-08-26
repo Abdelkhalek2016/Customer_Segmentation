@@ -8,13 +8,17 @@ st.set_page_config(page_title='Customer Segmentation by RFM Analysis',layout='wi
 st.title("Customer Segmentation by RFM Analysis")
 st.header("Welcome to the Bicycle Shopping Dashboard")
 st.text(" At this dashboard, our focus is on enhancing your bicycle shopping experience.Through intelligent data analysis, we've\ncreated a system that helps us categorize our customers effectively, enabling us to understand their significance\nand cater to their needs more efficiently.")
-
+with open("Raw_data.xlsx","rb") as file:
+    if st.download_button(label="Download All Data",data=file,file_name="Bicycle Shopping_Tables.xlsx",help="Click to download Raw dataset of Bicycle Shopping"):
+        st.text("Data Downloaded Successfully")
+    
 ## Side Bar
 show_table_box=st.sidebar.checkbox("Show Sample of Row Data")
 show_statistics=st.sidebar.checkbox("Show Statistics Analysis on Data")
 show_rfm_table=st.sidebar.checkbox("Show RFM Score Table")
 selected_customer=st.sidebar.multiselect( "Select Type of Customer", df['My_Segmentation'].unique() )
 all_options = st.sidebar.checkbox("Select all options",value=True)
+
 if all_options:
     selected_customer = list(df['My_Segmentation'].unique())
 
@@ -48,5 +52,3 @@ with col2:
     fig.update_xaxes(title="Type Of Customer")
     fig.update_yaxes(title="Count of Customers")
     st.plotly_chart(fig,use_container_width=True)
-
-    
